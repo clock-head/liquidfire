@@ -7,6 +7,8 @@ const domain = process.env.PRODUCTION_DOMAIN;
 
 const prodConfig = {
   mode: 'production',
+  // prod config causes webpack to run slightly differently.
+  // prod config minifies code for a production ready build
   output: {
     filename: '[name].[contenthash].js',
   },

@@ -9,14 +9,14 @@ import { green, purple } from '@mui/material/colors';
 
 const App = () => {
   const [color, setColor] = useState({
-    products: '#182C37',
+    products: '#234C6A',
     header: '#234851',
-    headerText: '#D47523',
-    main: '#B83D02',
+    headerText: '#5BDEF0',
+    main: '#234C6A',
   });
-  const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(true);
 
-  function toggleTheme(input) {
+  function toggleColor(input) {
     setColor(input);
     //setDark((prev) => !prev);
     console.log(color);
@@ -28,42 +28,27 @@ const App = () => {
     },
   });
 
+  const imageURL =
+    process.env.NODE_ENV === 'development' ? './img/galaxy.jpg' : '';
+
   const DynContainer = styled('div')((props) => ({
     position: 'relative',
-    left: '20%',
-    right: '40%',
-    width: '75%',
+    width: '100%',
     height: '2048px',
-    maxWidth: '1024px',
     background: props.bg,
+    backgroundSize: 'cover',
   }));
 
   return (
     <Fragment>
-      <ThemeProvider theme={theme}>
-        {/* <Box
-          sx={{ width: 900, position: 'relative', left: '20%', right: '40%' }}
-        > */}
-        <DynContainer bg={color.main}>
-          <Paper
-            color="primary"
-            sx={{
-              width: '75%',
-              position: 'relative',
-              left: '10%',
-              right: '20%',
-            }}
-          >
-            <Header headerColor={color.header} textColor={color.headerText} />
-          </Paper>
-          <ProductList
-            theme={theme}
-            toggleFunc={toggleTheme}
-            productColor={color.products}
-          />
-        </DynContainer>
-        {/* </Box> */}
-      </ThemeProvider>
+      <DynContainer>
+        <Header headerColor={color.header} textColor={color.headerText} />
+        <ProductList
+          theme={theme}
+          toggleFunc={toggleColor}
+          productColor={color.products}
+        />
+      </DynContainer>
     </Fragment>
   );
 };

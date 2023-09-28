@@ -11,6 +11,7 @@ const prodConfig = {
   // prod config minifies code for a production ready build
   output: {
     filename: '[name].[contenthash].js',
+    publicPath: '/container/latest/',
   },
   plugins: [
     new ModuleFederationPlugin({

@@ -1,5 +1,7 @@
 import React, { Fragment } from 'react';
-import { Box, Typography, Paper, Switch } from '@mui/material';
+import { Box, Typography, Paper, Switch, IconButton } from '@mui/material';
+import NavBar from './NavBar';
+import VoidLogo from '../../svg/void_logo_sm.svg';
 
 const Header = (props) => {
   return (
@@ -18,7 +20,7 @@ const Header = (props) => {
           sx={{
             color: 'white',
             position: 'relative',
-            top: '20px',
+            bottom: '15px',
             fontSize: '80px',
           }}
           variant="h1"
@@ -27,6 +29,7 @@ const Header = (props) => {
         >
           Liquidfire
         </Typography>
+        <NavBar handleTogCollection={props.handleToggleCollection} />
       </Box>
     </Fragment>
   );

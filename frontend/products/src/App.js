@@ -1,4 +1,4 @@
-import { useState, Fragment } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import React from 'react';
 import ProductList from './components/Products/ProductList.js';
 import Header from './components/Layout/Header.js';
@@ -6,27 +6,16 @@ import { Box, Paper, Typography } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { styled } from '@mui/system';
 import { green, purple } from '@mui/material/colors';
+import lunarCollection from './components/Collections/lunarCollection';
+import voidCollection from './components/Collections/lunarCollection';
 
 const App = () => {
-  const [color, setColor] = useState({
-    products: '#234C6A',
-    header: '#234851',
-    headerText: '#5BDEF0',
-    main: '#234C6A',
-  });
-  const [dark, setDark] = useState(true);
+  const [collection, setCollection] = useState(lunarCollection);
 
-  function toggleColor(input) {
-    setColor(input);
+  function toggleCollection(input) {
+    setCollection(input);
     //setDark((prev) => !prev);
-    console.log(color);
   }
-
-  const theme = createTheme({
-    palette: {
-      mode: dark ? 'dark' : 'light',
-    },
-  });
 
   const imageURL =
     process.env.NODE_ENV === 'development' ? './img/galaxy.jpg' : '';
@@ -42,12 +31,8 @@ const App = () => {
   return (
     <Fragment>
       <DynContainer>
-        <Header headerColor={color.header} textColor={color.headerText} />
-        <ProductList
-          theme={theme}
-          toggleFunc={toggleColor}
-          productColor={color.products}
-        />
+        <Header handleToggleCollection={toggleCollection} />
+        <ProductList currentCollection={collection} />
       </DynContainer>
     </Fragment>
   );

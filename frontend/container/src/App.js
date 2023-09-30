@@ -7,7 +7,7 @@ export default () => {
   return (
     <Fragment>
       <Box>
-        <p> liquidfire inc. copyright all rights reserve </p>
+        <p> liquidfire tech and clothing inc. copyright all rights reserve </p>
       </Box>
       <hr />
       <Products />

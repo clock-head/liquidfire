@@ -7,12 +7,12 @@ const Product = (props) => {
   const imageDir =
     process.env.NODE_ENV === 'development' ? `./img/${props.name}.jpg` : '';
 
-  console.log(imageDir);
+  console.log(imagePath);
 
   return (
     <ImageListItem>
       <img
-        src={`${imageDir}?w=328`}
+        src={`${imagePath}?w=328`}
         loading="lazy"
         style={{ cursor: 'pointer' }}
       ></img>

@@ -17,7 +17,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: 'container',
       remotes: {
-        products: `products@${domain}/www.liquidfire.tech/products/latest/remoteEntry.js`,
+        products: `products@${domain}/products/remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

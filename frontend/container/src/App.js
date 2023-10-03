@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import Products from './components/Products';
-import Background from './components/Background';
 import { Box, Grid } from '@mui/material';
 
 export default () => {

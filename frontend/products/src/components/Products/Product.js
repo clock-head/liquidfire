@@ -4,7 +4,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 // import './Products.css';
 
 const Product = (props) => {
-  const imageDir =
+  const imagePath =
     process.env.NODE_ENV === 'development' ? `./img/${props.name}.jpg` : '';
 
   console.log(imagePath);

@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 import { Box, Typography, Paper, Switch, IconButton } from '@mui/material';
 import NavBar from './NavBar';
-import VoidLogo from '../../svg/void_logo_sm.svg';
 
 const Header = (props) => {
   return (
